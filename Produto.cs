@@ -1,4 +1,3 @@
-using System.ComponentModel;
 using System;
 using System.Globalization;
 
@@ -6,9 +5,36 @@ namespace Estoque
 {
     class Produto
     {
-        public string Nome;
-        public double Preco;
-        public int Quantidade;
+        private string _nome;
+        public double Preco { get; private set; }
+        public int Quantidade { get; private set; }
+
+        public Produto() { }
+
+        public Produto(string nome, double preco) : this()
+        {
+            _nome = nome;
+            Preco = preco;
+        }
+
+        public Produto(string nome, double preco, int quantidade) : this(nome, preco)
+        {
+            Quantidade = quantidade;
+        }
+
+        //Adicionando properties
+        public string Nome
+        {
+            get { return _nome; }
+            set
+            {
+                if (value != null && value.Length > 1)
+                {
+                    _nome = value;
+                }
+            }
+
+        }
 
         public double ValorTotalEmEstoque()
         {
@@ -28,11 +54,11 @@ namespace Estoque
 
         public override string ToString()
         {
-            return Nome 
-                + ", $ " 
-                + Preco.ToString("F2", CultureInfo.InvariantCulture) 
-                + ", " 
-                + Quantidade 
+            return _nome
+                + ", $ "
+                + Preco.ToString("F2", CultureInfo.InvariantCulture)
+                + ", "
+                + Quantidade
                 + " unidades, Total: $ "
                 + ValorTotalEmEstoque().ToString("F2", CultureInfo.InvariantCulture);
         }
