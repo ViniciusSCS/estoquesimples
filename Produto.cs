@@ -52,13 +52,8 @@ namespace Estoque
 
         public override string ToString()
         {
-            return _nome
-                + ", $ "
-                + Preco.ToString("F2", CultureInfo.InvariantCulture)
-                + ", "
-                + Quantidade
-                + " unidades, Total: $ "
-                + ValorTotalEmEstoque().ToString("F2", CultureInfo.InvariantCulture);
+            return $"{_nome}, $ {Preco.ToString("F2", CultureInfo.InvariantCulture)}, "
+             + $"{Quantidade} unidades, Total: $ {ValorTotalEmEstoque().ToString("F2", CultureInfo.InvariantCulture)}";
         }
     }
 }
