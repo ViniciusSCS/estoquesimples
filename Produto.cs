@@ -9,8 +9,6 @@ namespace Estoque
         public double Preco { get; private set; }
         public int Quantidade { get; private set; }
 
-        // public Produto() { }
-
         public Produto(string nome, double preco)
         {
             _nome = nome;
